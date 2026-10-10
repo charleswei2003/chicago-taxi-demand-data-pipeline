@@ -16,9 +16,8 @@ Choose a role with permission to:
 
 For a least-privilege deployment, an administrator should create the database,
 schema, storage integration, and stage once, then grant only the necessary usage
-and object privileges to the pipeline role. The recovered script used a broad
-administrative role; the rebuilt project does not require or recommend that
-choice.
+and object privileges to the pipeline role. The pipeline does not need a broad
+administrative role, and using one is not recommended.
 
 ## External stage prerequisite
 

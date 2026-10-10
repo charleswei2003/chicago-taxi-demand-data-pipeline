@@ -1,18 +1,22 @@
 # Tableau Dashboard
 
-- **Workbook name:** `TODO: add workbook name`
-- **Tableau Public or Tableau Cloud URL:** `TODO: add published dashboard URL`
-- **Snowflake source:** `TODO: SNOWFLAKE_DATABASE.SNOWFLAKE_SCHEMA.SNOWFLAKE_TABLE`
-- **Optional screenshot:** `TODO: add a PNG under tableau/ and link it here`
+| | |
+| --- | --- |
+| **Workbook** | MSBA405 Final Project Dashboard |
+| **Live link** | [Open on Tableau Public](https://public.tableau.com/views/MSBA405FinalProjectDashboard/Dashboard1?:language=en-US&:display_count=n&:origin=viz_share_link) |
+| **Data** | The 23-column tract-month table that `pipeline.sh` loads into Snowflake |
 
-## Dashboard description
+## What the dashboard shows
 
-The intended dashboard analyzes monthly 2017 Chicago taxi pickup demand at the
+The dashboard analyzes monthly 2017 Chicago taxi pickup demand at the
 census-tract level alongside ACS demographic, commuting, education, income, and
-vehicle-availability characteristics. Suggested views include demand over time,
-tract comparisons, revenue and trip characteristics, and relationships between
-taxi use and ACS features.
+vehicle-availability characteristics.
 
-No Tableau workbook was supplied in the recovered file set. If a `.twb` or
-`.twbx` is recovered later, preserve it in this directory and update the fields
-above after verifying its Snowflake connection points to the rebuilt table.
+| View | Question it answers |
+| --- | --- |
+| Trips per capita heatmap | Where does taxi demand concentrate once population is taken into account? |
+| No-car map | Which tracts have the most households without a vehicle? |
+| Walk share vs. trips per capita | Do neighborhoods where people walk to work use taxis more? |
+| Car share vs. trips per capita | How does commuting by car relate to taxi use? |
+| No-car share vs. trips per household | Do car-free households lean on taxis? |
+| Median income vs. log trips per capita | How does taxi demand scale with neighborhood income? |

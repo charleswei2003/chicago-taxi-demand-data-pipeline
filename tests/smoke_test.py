@@ -1,4 +1,4 @@
-"""Offline smoke tests for the recovered MGMT 405 pipeline repository."""
+"""Offline smoke tests for the Chicago taxi demand pipeline repository."""
 
 from __future__ import annotations
 
@@ -49,7 +49,6 @@ REQUIRED_FILES = (
     "docs/snowflake_setup.md",
     "tableau/README.md",
     "tests/smoke_test.py",
-    "archive/README.md",
 )
 
 

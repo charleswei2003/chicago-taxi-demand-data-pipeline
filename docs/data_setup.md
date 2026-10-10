@@ -14,7 +14,7 @@ OPTIONS(location = 'YOUR_BIGQUERY_LOCATION');
 
 ## 2. Copy the ACS 2017 tract table
 
-The recovered processing code expects the full ACS tract schema because it uses
+The processing code expects the full ACS tract schema because it uses
 specific commuting, population, household, education, and income columns. Copy
 the table without narrowing its fields:
 
@@ -31,9 +31,8 @@ Do not substitute a county- or block-group-level table.
 
 ## 3. Create the 2017 Chicago taxi table
 
-The production job needs the source fields named in `TAXI_REQUIRED_COLUMNS`; no
-unsupported source-field selection has been invented. Preserve all columns and
-filter only the trip start timestamp:
+The production job needs the source fields named in `TAXI_REQUIRED_COLUMNS`.
+Preserve all columns and filter only the trip start timestamp:
 
 ```sql
 CREATE OR REPLACE TABLE

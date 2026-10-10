@@ -1,8 +1,8 @@
 """Build the 2017 Chicago taxi-demand tract-month analytical dataset.
 
-This production job recovers the compatible cleaning, aggregation, and feature
-logic from the original MGMT 405 project. Account-specific paths are supplied
-at runtime; no project, bucket, or credential is embedded in this file.
+This production job implements the cleaning, aggregation, and feature logic of
+the MGMT 405 project. Account-specific paths are supplied at runtime; no
+project, bucket, or credential is embedded in this file.
 """
 
 from __future__ import annotations
@@ -188,9 +188,8 @@ def clean_taxi(taxi: DataFrame) -> DataFrame:
         .withColumn("tract_id", F.format_string("%011d", F.col("pickup_census_tract").cast("long")))
         .filter(F.col("tract_id").rlike(r"^\d{11}$"))
         .withColumn("month", F.month("trip_start_timestamp").cast("integer"))
-        # The recovered script divided by fare unconditionally even though it
-        # allowed zero fares. Null-safe division preserves those trips while
-        # excluding undefined rates from Spark's average.
+        # Zero fares are allowed, so tip rate uses null-safe division: those
+        # trips are kept while undefined rates are excluded from Spark's average.
         .withColumn("tip_rate", safe_ratio("tips", "fare"))
         .select(
             "tract_id",
